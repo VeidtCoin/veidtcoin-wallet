@@ -1,0 +1,13 @@
+QMainWindow {
+    background-color: #1B002C;
+    color: #EEEEEE;
+    font-family: 'Fira Code', monospace;
+    font-size: 15px;
+    border-radius: 12px;
+}
+
+QLabel {
+    color: #DDDDFF;
+    font-weight: bold;
+    text-align: center;
+}
