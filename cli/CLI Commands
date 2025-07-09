@@ -1,0 +1,4 @@
+> create             # Generate new wallet + seed + address
+> load <seed>        # Restore wallet
+> address            # Show wallet address
+> exit               # Quit
