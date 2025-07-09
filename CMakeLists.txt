@@ -1,18 +1,25 @@
-cmake_minimum_required(VERSION 3.13)
-project(VeidtWallet)
+cmake_minimum_required(VERSION 3.10)
+project(veidtcoin-wallet)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt5 REQUIRED COMPONENTS Widgets)
+add_subdirectory(cli)
+add_subdirectory(keys)
+add_subdirectory(rpc)
+add_subdirectory(util)
 
-include_directories(${PROJECT_SOURCE_DIR}/src)
+add_executable(veidtwallet cli/main.cpp)
 
-file(GLOB SOURCES
-    src/*.cpp
-    src/gui/*.cpp
+target_include_directories(veidtwallet PRIVATE
+    cli
+    keys
+    rpc
+    util
 )
 
-add_executable(veidt-wallet ${SOURCES})
-
-target_link_libraries(veidt-wallet Qt5::Widgets)
+target_link_libraries(veidtwallet
+    walletcli
+    walletkeys
+    walletrpc
+    walletutil
+)
